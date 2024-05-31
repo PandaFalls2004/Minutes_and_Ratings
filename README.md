@@ -1,2 +1,2 @@
-# Minutes_and_Ratings
+# Analyzing Relationships Between Minutes and Ratings of Recipes
 This is a project for DSC 80 at UCSD investigating the relationship between ratings, minutes, and predicting minutes based on other variables.
