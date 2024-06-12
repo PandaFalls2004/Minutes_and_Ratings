@@ -37,4 +37,10 @@ Step 4:
 
 Below are the first 5 rows of our cleaned *final_dataset*. Even though in total it has 18 columns, we only included the 5 that we really needed for our analysis including, *recipe_id*, *id*, *minutes*, *rating*, and *avg_rating*.
 
-print(final_dataset[['recipe_id', 'id', 'minutes', 'rating', 'avg_rating']].head().to_markdown(index=False))
+|   recipe_id |     id |   minutes |   rating |   avg_rating |
+|------------:|-------:|----------:|---------:|-------------:|
+|      333281 | 333281 |        40 |        4 |            4 |
+|      453467 | 453467 |        45 |        5 |            5 |
+|      306168 | 306168 |        40 |        5 |            5 |
+|      306168 | 306168 |        40 |        5 |            5 |
+|      306168 | 306168 |        40 |        5 |            5 |
