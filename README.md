@@ -50,5 +50,7 @@ For this analysis we wanted to look at the distribution of minutes or cooking ti
 
 Our plot below is a box plot of the minutes column in our filtered dataframe. As the plot below shows, our upper quartile value is 50. This means that 75% of the data falls below 50 minutes. The median value is 30 minutes and the max value is 118 minutes. The distribution of our data is positively skewed.
 
+<iframe src="assets/boxplot.html" width="800" height="600" frameborder="0" ></iframe>
+
 ### Bivariate Analysis
 For this analysis, we examined the distribution of 
