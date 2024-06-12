@@ -33,4 +33,8 @@ Step 3:
     Our dataset only has a rating column, but we are interested in avergae ratings. In this step we created a series of average ratings by using *groupby* method to group by *id* and then get the mean of the rating. Because a recipe could be rated my multiple people, this allowed us to get an overall rating and look at the rating for a recipe as a whole. 
 
 Step 4:
-    We added our average ratings series as a column to our merged dataframe. Our final dataframe now has 18 columns and 234429 rows.
+    We added our average ratings series as a column to our merged dataframe and named it *avg_rating*. Our final dataframe now has 18 columns and 234429 rows.
+
+Below are the first 5 rows of our cleaned *final_dataset*. Even though in total it has 18 columns, we only included the 5 that we really needed for our analysis including, *recipe_id*, *id*, *minutes*, *rating*, and *avg_rating*.
+
+print(final_dataset[['recipe_id', 'id', 'minutes', 'rating', 'avg_rating']].head().to_markdown(index=False))
