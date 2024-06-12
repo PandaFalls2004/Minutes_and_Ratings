@@ -9,4 +9,4 @@ and gatherings fostering a sense of community and value. With the vast amount of
 
 Our first dataset is the recipes dataset. This dataset has 83782 rows and 12 columns.
 
-![Screenshot of the descriptions of the columns in recipes dataframe]("C:\Users\Kendall Underwood\Pictures\Screenshots\Screenshot 2024-06-11 172039.png")
+![Screenshot 2024-06-11 172039](https://github.com/PandaFalls2004/Minutes_and_Ratings/assets/129922943/fa254737-6bf3-4324-b9ed-a184475d2dc9)
