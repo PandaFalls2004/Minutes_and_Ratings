@@ -44,3 +44,10 @@ Below are the first 5 rows of our cleaned *final_dataset*. Even though in total 
 |      306168 | 306168 |        40 |        5 |            5 |
 |      306168 | 306168 |        40 |        5 |            5 |
 |      306168 | 306168 |        40 |        5 |            5 |
+
+### Univariate Analysis
+For this analysis we wanted to look at the distribution of minutes or cooking time for the recipes. We noticed when we first created our visualization that we had a large amount of outliers in our minutes column. This made our visualizations very hard to interpret. We then decided to create a helper function that created upper and lower bounds based on the Interquartile Range formula. This gave us upper and lowers bounds that we used to filter our data.
+
+Our plot below is a box plot of the minutes column in our filtered dataframe. As the plot below shows, our upper quartile value is 50. This means that 75% of the data falls below 50 minutes. The median value is 30 minutes and the max value is 118 minutes. The distribution of our data is positively skewed.
+
+### Bivariate Analysis
