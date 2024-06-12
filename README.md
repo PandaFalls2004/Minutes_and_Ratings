@@ -53,4 +53,6 @@ Our plot below is a box plot of the minutes column in our filtered dataframe. As
 <iframe src="assets/boxplot.html" width="800" height="600" frameborder="0" ></iframe>
 
 ### Bivariate Analysis
-For this analysis, we examined the distribution of minutes and average rating in order to identify any possible associations. The box plot below shows that average ratings of 4 and 5 tend to have higher medians than ratings of 1, 2, or 3. We see a difference in the medians, but the overall distributions seem pretty similar. 
+For this analysis, we examined the distribution of minutes and average rating in order to identify any possible associations. The box plot below shows that average ratings of 4 and 5 tend to have higher medians than ratings of 1, 2, or 3. We see a difference in the medians, but the overall distributions seem pretty similar.
+
+<iframe src="assets/boxplot_bivariate.html" width="800" height="600" frameborder="0" ></iframe>
