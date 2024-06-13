@@ -100,7 +100,7 @@ Alternative Hypothesis: The missinness of the *review* column does depend on the
 We again used the **absolute difference in means** for our test statistic and **.05** as our signifigance level.
 
 
-### Hypothesis Testing
+## Hypothesis Testing
 As stated above, in the analysis we are intersted in investigating the relationship between cook time and average rating. For our analysis, we categorized avergage ratings into low and high categories. We consider ratings to be low if the are 1-3, and high ratings are average rating values of 4 or 5. We created a function that would categorize each recipe and added that as an addition column in our dataframe named **categorized_data**. We then ran our permuation test.
 
 Null Hypothesis: High rated recipes have the same cooking times as low rated recipes
@@ -110,4 +110,12 @@ Signifigance level: 0.05
 
 We chose to do a permutation test because we are trying to determine if the distributions look like they could come from the same population. We proposed that High rated recipes have shorter cooking times because of the business of people in their everyday lives and wanting to have a quick, yet healty and nutritious meal. With work, school, and other activities having a meal that doesnt take long to cook saves time and energy. This could be an added plus for people when deciding what recipes they like and how they want to rate them. Since we are stating that High rated recpes have shorter cooking times, we used difference in means as our test statistic because it is directional.
 
-To run the test we first calulated our observed difference which was 
+To run the test we first calulated our observed difference. Then we shuffled the minutes column 500 times to collect 500 simulations of the mean difference. We got a p-value of **.512**
+
+### Conclusion
+Since the p-value we found is .512, which is more than our signifigance level of .05, we fail to reject the null hypothesis. There is no sufficient evidence that high rated recipes have shorter cooking times than low rated recipes.
+
+## Framing a Prediction Problem
+We plan to predict the **number of minutes to prepare recipes**. This is a **regression** problem because minutes is a numerical variable.
+
+We chose minutes as our response variable because it is valuable to know how long a recipe will take to cook. This would be valuable information when planning when and what to cook at certain times.
