@@ -127,11 +127,11 @@ Significance level: 0.05
 
 We chose to do a permutation test because we are trying to determine if the distributions look like they could come from the same population. We proposed that High rated recipes have shorter cooking times because of the business of people in their everyday lives and wanting to have a quick and nutritious meal. With work, school, and other activities having a meal that doesn’t take long to cook saves time and energy. This could be an added plus for people when deciding what recipes, they like and how they want to rate them. Since we are stating that High rated recipes have shorter cooking times, we used difference in means as our test statistic because it is directional.
 
-To run the test, we first calculated our observed difference. Then we shuffled the minutes column 500 times to collect 500 simulations of the mean difference. We got a p-value of **.512**
+To run the test, we first calculated our observed difference. Then we shuffled the minutes column 500 times to collect 500 simulations of the mean difference. We got a p-value of **0.512**
 
 
 ### Conclusion
-Since the p-value we found is .512, which is more than our significance level of .05, we fail to reject the null hypothesis. There is no sufficient evidence that high rated recipes have shorter cooking times than low rated recipes.
+Since the p-value we found is 0.512, which is more than our significance level of 0.05, we fail to reject the null hypothesis. There is not sufficient evidence that high rated recipes have shorter cooking times than low rated recipes.
 
 ## Framing a Prediction Problem
 We plan to predict the **number of minutes to prepare recipes**. This is a **regression** problem because minutes is a numerical variable.
