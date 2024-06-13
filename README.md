@@ -68,3 +68,33 @@ The columns that we chose to use in our pivot table are *avg_rating* and *minute
 |            3 | 38.4271 |       35 |
 |            4 | 36.9375 |       30 |
 |            5 | 35.8803 |       30 |
+
+
+## Assessment of Missingness
+
+### NMAR Analysis
+We believe that the missingness of the *rating* column is NMAR because when looking at the website you can choose to not leave a rating along with a review. Since it is up to human choice, people can choose not to submit a rating based off of any random reason or circumstance.
+
+### Missingness Dependency
+We then moved our analysis to help determine the missingness of the column *review*. In order to do this we tested if this column depended on *n_steps* and *minutes*.
+
+First we start with *n_steps* and *review*.
+Null Hypothesis: The missingness of the *review* column does not depend on *n_steps*
+
+Alternative Hypothesis: The missingness of the *review* column does depend on *n_steps*
+
+The test statistc that we used in our permutation test was **absolute difference in means** and our signifigance level
+was **.05**
+
+We ran a permutation test by shuffling the *n_steps* column 500 times to get 500 simulations of the mean differences. 
+
+
+
+
+Our second permutation test was with *minutes* and *review*.
+
+Null Hypothesis: The missingness of the *review* column does not depend on the *minute*.
+
+Alternative Hypothesis: The missinness of the *review* column does depend on the *minute* column.
+
+We again used the **absolute difference in means** for our test statistic and **.05** as our signifigance level.
