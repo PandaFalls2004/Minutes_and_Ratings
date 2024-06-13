@@ -117,7 +117,7 @@ Below is the histogram of our results:
 
 
 ## Hypothesis Testing
-As stated above, in the analysis we are intersted in investigating the relationship between cook time and average rating. For our analysis, we categorized avergage ratings into low and high categories. We consider ratings to be low if the are 1-3, and high ratings are average rating values of 4 or 5. We created a function that would categorize each recipe and added that as an addition column in our dataframe named **categorized_data**. We then ran our permuation test.
+As stated above, in the analysis we are intersted in investigating the relationship between cook time and average rating. For our analysis, we categorized avergage ratings into low and high categories. We consider ratings to be low if the are 1-3, and high ratings are average rating values of 4 or 5. We created a function that would categorize each recipe and added that as an addition column in our dataframe named **categorized_data**. We then ran our permutation test.
 
 Null Hypothesis: High rated recipes have the same cooking times as low rated recipes
 Alternative Hypothesis: High rated recipes have shorter cooking times than low rated recipes
@@ -129,9 +129,22 @@ We chose to do a permutation test because we are trying to determine if the dist
 To run the test we first calulated our observed difference. Then we shuffled the minutes column 500 times to collect 500 simulations of the mean difference. We got a p-value of **.512**
 
 ### Conclusion
-Since the p-value we found is .512, which is more than our signifigance level of .05, we fail to reject the null hypothesis. There is no sufficient evidence that high rated recipes have shorter cooking times than low rated recipes.
+Since the p-value we found is .512, which is more than our significance level of .05, we fail to reject the null hypothesis. There is no sufficient evidence that high rated recipes have shorter cooking times than low rated recipes.
 
 ## Framing a Prediction Problem
 We plan to predict the **number of minutes to prepare recipes**. This is a **regression** problem because minutes is a numerical variable.
 
 We chose minutes as our response variable because it is valuable to know how long a recipe will take to cook. This would be valuable information when planning when and what to cook at certain times.
+
+
+## Final Model 
+We decided to use the same 3 variables from our baseline model, since the graphs demonstrated that these variables did positively correlate with minutes. We tried a different regressor, specifically a decision tree regressor.  
+
+Using GridSearchCV, we tested the hyperparameters "min sample leaf" and "max depth". GridSearchCV returned that our best hyperparameters were a max depth of 100 and a minimum sample leaf of 1, which is the highest complexity of the hyperparameters we tested. This resulted in overfitting from our model, though it was a significant improvement over our initial model.
+
+We then manually experimented with multiple hyperparameters, which would usually either greatly decrease our R^2 or reinforce the overfitting observed. We settled with a max depth of 50 and a minimum sample leaf of 5. This resulted in an R^2 of about 0.55 for the test and 0.75 for the training, which was still overfitting but much less so than the GridSearchCV results while still being much better than our initial model. We also calculated the RMSE, and got about 15.6 on our test RMSE and 11.4 for our training RMSE. 
+
+## Fairness Analysis
+To evaluate our model's fairness, we thought about analyzing our model based on date. We converted the date recipes were submitted and extracted the year. Most of the data is concentrated within the first few years, so our model could be biased towards older data and therefore might not be accurate for current recipes. Therefore, we split our data into pre-2010 data (about 2/3rds of the data) and 2010 and onwards (remaining 1/3rd) using the Binarizer function from sklearn. 
+
+We chose to use the absolute difference of RMSEs as a test statistic for the test since we have previously used it to evaluate our models and because it is larger than the R^2, so the differences might be more evident. Our null hypothesis is that the RMSE for pre-2010 data will have the same RMSE as data from 2010 and onwards and our alternative hypothesis is that the RMSE for pre-2010 data will be different from the RMSE for data from 2010 and onwards. We will again use a significance level of 0.05. Based on our observed data, pre-2010 data has a lower RMSE. After multiple permutations, we find that this difference is significant. Our p-value is 0.0, so we reject the null hypothesis. It does seem like there is a difference in our model's performance between pre-2010 data and post-2009 data. 
