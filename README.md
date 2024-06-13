@@ -98,3 +98,16 @@ Null Hypothesis: The missingness of the *review* column does not depend on the *
 Alternative Hypothesis: The missinness of the *review* column does depend on the *minute* column.
 
 We again used the **absolute difference in means** for our test statistic and **.05** as our signifigance level.
+
+
+### Hypothesis Testing
+As stated above, in the analysis we are intersted in investigating the relationship between cook time and average rating. For our analysis, we categorized avergage ratings into low and high categories. We consider ratings to be low if the are 1-3, and high ratings are average rating values of 4 or 5. We created a function that would categorize each recipe and added that as an addition column in our dataframe named **categorized_data**. We then ran our permuation test.
+
+Null Hypothesis: High rated recipes have the same cooking times as low rated recipes
+Alternative Hypothesis: High rated recipes have shorter cooking times than low rated recipes
+Test Statistic: The difference in mean between high rated and low rated recipes
+Signifigance level: 0.05
+
+We chose to do a permutation test because we are trying to determine if the distributions look like they could come from the same population. We proposed that High rated recipes have shorter cooking times because of the business of people in their everyday lives and wanting to have a quick, yet healty and nutritious meal. With work, school, and other activities having a meal that doesnt take long to cook saves time and energy. This could be an added plus for people when deciding what recipes they like and how they want to rate them. Since we are stating that High rated recpes have shorter cooking times, we used difference in means as our test statistic because it is directional.
+
+To run the test we first calulated our observed difference which was 
