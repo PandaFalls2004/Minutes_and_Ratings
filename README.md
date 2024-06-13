@@ -138,6 +138,8 @@ We chose minutes as our response variable because it is valuable to know how lon
 
 The metrics we used are RMSE and R^2. We used these metrics because they are common Linear Regression criterion measures. The information that we would know at the time of prediction would be all the columns in the recipe dataset that was first introduced besides the *minute* column. All of that information is related to the actual recipe themselves and is inputted as features of that recipe. Based off of those features,  we would want to be able to predict how much time said recipe takes to cook.
 
+## Baseline Model
+
 
 
 ## Final Model 
