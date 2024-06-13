@@ -3,9 +3,9 @@
 ## Overview
 This is a project for DSC 80 at UCSD investigating the relationship between ratings, minutes, and predicting minutes based on other variables.
 ## Introduction
-Food is essential to human life and is a very big part of peoples cultures. Not only does it provide
-basic sustencance like energy and nutrients, but it is often at the center of celebrations, festivals, 
-and gatherings fostering a sense of community and value. With the vast amount of recipes out there, it is important to understand certian factors such as cook time, ingrediants and steps to allow others to replicate the meal. Through the rise of cooking channels and online platforms to share recipies, many have begun to rate the recipes that they have tried to cook based of different factors includng cook time. **With this in mind, we want to understand the relationship between cooking time and average rating of recipes**. We want to explore if differnet cook times that are considered 'low' or 'high' have different average ratings. In order to do this we analyzed two datasets, one ratings and the other recipes. These were found on https://food.com/ and consist of recipes that have been posted since 2008.
+Food is essential to human life and is a very big part of peoples' cultures. Not only does it provide
+basic sustenance like energy and nutrients, but it is often at the center of celebrations, festivals, 
+and gatherings, which fosters a sense of community and value. With the vast amount of recipes out there, it is important to understand certain factors such as cook time, ingredients and steps to allow others to replicate the meal. Through the rise of cooking channels and online platforms to share recipies, many have begun to rate the recipes that they have tried to cook based of different factors includng cook time. **With this in mind, we want to understand the relationship between cooking time and average rating of recipes**. We want to explore if differnet cook times that are considered 'low' or 'high' have different average ratings. In order to do this we analyzed two datasets, one ratings and the other recipes. These were found on https://food.com/ and consist of recipes that have been posted since 2008.
 
 Our first dataset is the **recipes** dataset. This dataset has 83782 rows and 12 columns.
 
@@ -24,7 +24,7 @@ In order to gain insights on our question we needed to do some data cleaning and
 
 
 Step 1:
-    Because we had two datasets with information we needed our first step was to merge the datasets together. We left merged the recipes and interactions dataset left on *id* and right on *recipe_id*. This allowed us to match up the recipes and have the minutes and ratings for each different recipe.
+    Because we had two datasets with the information that we needed, the first step was to merge the datasets together. We left merged the recipes and interactions dataset left on *id* and right on *recipe_id*. This allowed us to match up the recipes and have the minutes and ratings for each different recipe.
 
 Step 2:
     After we had our merged dataset, we filled all of the ratings that had a value of 0 with NaN values. This makes sense because most ratings scales are from 1 to 5 and dont include 0. This helped reduce rating bias in our dataset.
@@ -73,23 +73,33 @@ The columns that we chose to use in our pivot table are *avg_rating* and *minute
 ## Assessment of Missingness
 
 ### NMAR Analysis
-We believe that the missingness of the *rating* column is NMAR because when looking at the website you can choose to not leave a rating along with a review. Since it is up to human choice, people can choose not to submit a rating based off of any random reason or circumstance.
+We believe that the missingness of the *description* column is NMAR because when looking at the website you can choose to not leave a description under your recipe. Since it is up to human choice, people can choose not to add a description for any random reason or circumstance.
 
 ### Missingness Dependency
-We then moved our analysis to help determine the missingness of the column *review*. In order to do this we tested if this column depended on *n_steps* and *minutes*.
+We then moved our analysis to help determine the missingness of the column *ratings*. In order to do this we tested if this column depended on *n_steps* and *minutes*. For this analysis, we used merged\_dataset instead of our filtered dataset so that we can look at more null values. 
 
-First we start with *n_steps* and *review*.
-Null Hypothesis: The missingness of the *review* column does not depend on *n_steps*
+Below are the histograms comparing the distributions of *n_steps* and *minutes* when *rating* is missing and when it is not. Minutes had to be filtered so that the histogram would be visible, however we will use the entirety of merged\_dataset in our analysis. The distributions look fairly similar in both cases, but this could be a result of the large amount of data we have.
 
-Alternative Hypothesis: The missingness of the *review* column does depend on *n_steps*
+<iframe src="assets/minutes_histogram.html" width="800" height="600" frameborder="0" ></iframe>
 
-The test statistc that we used in our permutation test was **absolute difference in means** and our signifigance level
+<iframe src="assets/n_steps_histogram.html" width="800" height="600" frameborder="0" ></iframe>
+
+First we start with *n_steps* and *rating*.
+
+Null Hypothesis: The missingness of the *rating* column does not depend on *n_steps*
+
+Alternative Hypothesis: The missingness of the *rating* column does depend on *n_steps*
+
+The test statistc that we used in our permutation test was **absolute difference in means** and our significance level
 was **.05**
 
 We ran a permutation test by shuffling the *n_steps* column 500 times to get 500 simulations of the mean differences. 
 
+Our p-value was 0.0, so we reject the null hypothesis. It seems like the missingness of the *rating* column does depend on *n_steps*
 
+Below is the histogram of our results:
 
+<iframe src="assets/n_steps_results.html" width="800" height="600" frameborder="0" ></iframe>
 
 Our second permutation test was with *minutes* and *review*.
 
@@ -97,7 +107,13 @@ Null Hypothesis: The missingness of the *review* column does not depend on the *
 
 Alternative Hypothesis: The missinness of the *review* column does depend on the *minute* column.
 
-We again used the **absolute difference in means** for our test statistic and **.05** as our signifigance level.
+We again used the **absolute difference in means** for our test statistic and **.05** as our significance level.
+
+Our p-value was consistently 0.1 or greater, so we fail to reject the null hypothesis. We cannot conclude that *rating* is MAR dependent on *minutes*.
+
+Below is the histogram of our results:
+
+<iframe src="assets/minutes_results.html" width="800" height="600" frameborder="0" ></iframe>
 
 
 ## Hypothesis Testing
