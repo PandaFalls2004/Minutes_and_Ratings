@@ -60,3 +60,11 @@ For this analysis, we examined the distribution of minutes and average rating in
 
 ### Interesting Aggregates
 The columns that we chose to use in our pivot table are *avg_rating* and *minutes*. For this section we wanted to explore the relationship between each distince average rating and the median and mean of the minutes asscociated with it. The table below shows that as the avergage rating increases, the median minutes decrease and so does the mean minutes. This suggest there might be a coorelation with lower cook time and higher ratings.
+
+|   avg\_rating |    mean |   median |
+|-------------:|--------:|---------:|
+|            1 | 39.126  |       35 |
+|            2 | 38.769  |       35 |
+|            3 | 38.4271 |       35 |
+|            4 | 36.9375 |       30 |
+|            5 | 35.8803 |       30 |
