@@ -90,7 +90,7 @@ Null Hypothesis: The missingness of the *rating* column does not depend on *n_st
 
 Alternative Hypothesis: The missingness of the *rating* column does depend on *n_steps*
 
-The test statistc that we used in our permutation test was **absolute difference in means** and our significance level
+The test statistic that we used in our permutation test was **absolute difference in means** and our significance level
 was **.05**
 
 We ran a permutation test by shuffling the *n_steps* column 500 times to get 500 simulations of the mean differences. 
