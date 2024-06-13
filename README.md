@@ -136,6 +136,9 @@ We plan to predict the **number of minutes to prepare recipes**. This is a **reg
 
 We chose minutes as our response variable because it is valuable to know how long a recipe will take to cook. This would be valuable information when planning when and what to cook at certain times.
 
+The metrics we used are RMSE and R^2. We used these metrics because they are common Linear Regression criterion measures. The information that we would know at the time of prediction would be all the columns in the recipe dataset that was first introduced besides the *minute* column. All of that information is related to the actual recipe themselves and is inputted as features of that recipe. Based off of those features,  we would want to be able to predict how much time said recipe takes to cook.
+
+
 
 ## Final Model 
 We decided to use the same 3 variables from our baseline model, since the graphs demonstrated that these variables did positively correlate with minutes. We tried a different regressor, specifically a decision tree regressor.  
