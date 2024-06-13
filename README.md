@@ -139,6 +139,13 @@ We chose minutes as our response variable because it is valuable to know how lon
 The metrics we used are RMSE and R^2. We used these metrics because they are common Linear Regression criterion measures. The information that we would know at the time of prediction would be all the columns in the recipe dataset that was first introduced besides the *minute* column. All of that information is related to the actual recipe themselves and is inputted as features of that recipe. Based off of those features,  we would want to be able to predict how much time said recipe takes to cook.
 
 ## Baseline Model
+For our baseline model, we are utilizing a pipeline to implement a Linear Regression model and we split our data into training and testing sets The features that we are using in this model are *n_steps*, *n_ingrediants*, and *calories*. Both of these columns contain quantitative numerical values.
+
+The *calories* values came from grabbing them out of the *nutrition* column, which was a list of nutritional values. We then used our IQR function again to obtain upper and lower limits for calories so we would reduce outliers.
+
+We used StandardScalar to standardize minutes, ensuring that cooking times are in ranges that are comparable, especially because we discovered outliers in our previous model.
+
+The R^2 of training was **.24** and the R^2 for testing was **.25**. The RMSE for training was **20.60** and the RMSE for testing was **20.71**. These low metric scores, lets us know that we need to improve our model and that there possibly could be better features that we could utilize to make our predictions more accurate.
 
 
 
